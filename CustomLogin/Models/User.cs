@@ -107,7 +107,11 @@ namespace CustomLogin.Models
 
                 password = value;
             }
+
+            
         }
+
+        public bool IsLoggIn { get; set; } = false;
         private bool IsPassValid(string value)
         {
             int upperCount = 0;
@@ -153,5 +157,16 @@ namespace CustomLogin.Models
 
             return true;
         }
+
+        public void UserLoggIn()
+        {
+            if (!IsLoggIn) { IsLoggIn = true; }           
+        }
+
+        public void UserLoggOut()
+        {
+            if (IsLoggIn) { IsLoggIn = false; }
+        }
+
     }
 }
