@@ -1,14 +1,22 @@
-﻿
-using CustomLogin.IO.Interfaces;
+﻿using CustomLogin.IO.Interfaces;
 using CustomLogin.IO.Models;
+using CustomLogin.Models;
 
 IReader reader = new ConsoleReader();
 IWriter writer = new ConsoleWriter();
 
-string test = reader.ReadLine();
+User user=default;
 
-writer.WriteLine(test);
-writer.Write(test);
-writer.Write(test);
+try
+{
+    user = new("Atanasov", "Petar", "Test", "atanasov@test.com", "AbvAbv1");
+}
+catch (Exception ex)
+{
+    writer.WriteLine(ex.Message);
+}
+
+writer.WriteLine(user.FirstName + " " + user.LastName);
+
 
 
